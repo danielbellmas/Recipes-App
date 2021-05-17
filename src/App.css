@@ -1,7 +1,7 @@
 .form {
   display: flex;
   align-items: center;
-  margin: 1em;
+  margin: 4em;
   justify-content: center;
 }
 
@@ -10,6 +10,9 @@
   text-align: center;
   width: 50%;
   border-radius: 0.5rem;
+}
+.input-search:focus::placeholder {
+  color: transparent;
 }
 
 body {
@@ -21,7 +24,8 @@ body {
 }
 
 h1 {
-  margin: 2rem;
+  margin-top: 3.5rem;
+  font-size: 3.6rem;
   text-align: center;
   font-family: "Goblin One", cursive;
   overflow: hidden;

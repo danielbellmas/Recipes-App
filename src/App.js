@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Recipe from "./components/Recipe";
 
@@ -7,7 +7,9 @@ const App = () => {
   // useState
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
-  const [search, setSearch] = useState("");
+
+  // useRef
+  const inputValue = useRef(null);
 
   //functions
   const getRecipes = async () => {
@@ -17,13 +19,11 @@ const App = () => {
     const data = await response.json();
     setRecipes(data.hits);
   };
-  const getSearchValue = (e) => {
-    let val = e.target.value;
-    setSearch(val);
-  };
+
   const getQueryValue = (e) => {
     e.preventDefault();
-    setQuery(search);
+    console.log(inputValue.current.value);
+    setQuery(inputValue.current.value);
   };
 
   // useEffect
@@ -39,7 +39,9 @@ const App = () => {
           className=" input-search"
           autoFocus
           type="text"
-          onChange={getSearchValue}
+          placeholder="Please enter an ingredient"
+          onClick={(e) => e.target.select()}
+          ref={inputValue}
         />
         <button className="btn btn-primary" type="submit">
           Search
