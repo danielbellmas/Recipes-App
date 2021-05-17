@@ -47,6 +47,8 @@ h1:hover {
 }
 img {
   border-radius: 1.5rem;
+  width: 100%;
+  height: auto;
 }
 
 .recipe-card {
